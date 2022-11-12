@@ -33,19 +33,16 @@ function renderCurrencies(currencies) {
     document.getElementById('currencies').innerHTML = htmlStr;
     
     var trs = document.getElementsByTagName("tr") 
-    for(var item = 0; item < trs.length; item++) {
-    var tr = trs[item];
-    tr.onmouseenter = function(e) {
+        for(var item = 0; item < trs.length; item++) {
+        var tr = trs[item];
+        tr.onmouseenter = function(e) {
         e.currentTarget.classList.add("bg-success");
-    }
+        }
 
-    tr.onmouseleave = function(e) {
+        tr.onmouseleave = function(e) {
         e.currentTarget.classList.remove("bg-success")
+        }
     }
-}
-
-
-
 }
 
 fetch('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=20221110&json').then(res => res.json()).then(function(data) {
